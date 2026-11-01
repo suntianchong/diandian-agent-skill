@@ -17,7 +17,7 @@ PY="$(command -v python3 || command -v python || true)"
 
 say "下载 $REPO@$REF ..."
 curl -fsSL "https://github.com/$REPO/archive/refs/heads/$REF.tar.gz" | tar -xz -C "$TMP"
-ROOT="$(find "$TMP" -maxdepth 1 -type d -name 'diandian-agent-skill-*' | head -n 1)"
+ROOT="$(find "$TMP" -mindepth 1 -maxdepth 1 -type d | head -n 1)"
 [ -n "$ROOT" ] || { say "解压失败"; exit 1; }
 
 if [ "$#" -eq 0 ]; then

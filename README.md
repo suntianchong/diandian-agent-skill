@@ -1,5 +1,3 @@
-> **本仓库已迁移**：Skill 现在发布在 [suntianchong/PUPPYTODO-AGENT-SKILL](https://github.com/suntianchong/PUPPYTODO-AGENT-SKILL)，本仓库保留只读存档，不再更新。
-
 # 点点 Agent Skill
 
 让 Claude Code、Cursor、Codex、TRAE、Windsurf、Cline、Gemini CLI、GitHub Copilot、Aider 等 AI Agent 通过命令行接入**点点（Diandian）**待办服务：替人记录任务、安排日期、查看计划、按分配执行并回写状态。
@@ -19,13 +17,22 @@
 ## 快速开始
 
 ```bash
-# 1. 装到你的客户端（不写参数时自动挑一个已存在的目录）
-curl -fsSL https://raw.githubusercontent.com/suntianchong/diandian-agent-skill/main/install.sh | sh -s -- --host claude --scope user
+# 1. 取 Skill（推荐克隆，Agent 能直接读 SKILL.md 和 references）
+gh repo clone suntianchong/diandian-agent-skill      # 或 git clone https://github.com/suntianchong/diandian-agent-skill.git
 
-# 2. 准备 CLI 并发起人工授权
+# 2. 用克隆下来的 Skill 装到你的客户端（不写 --host 时自动挑一个已存在的目录）
+python3 diandian-agent-skill/skills/diandian-agent/scripts/install.py --host claude --scope user
+
+# 3. 准备 CLI 并发起人工授权
 python3 ~/.claude/skills/diandian-agent/scripts/onboard.py \
-  --server https://your-diandian.example.com \
+  --server https://你的点点服务地址 \
   --client-name "Claude Code"
+```
+
+不想克隆也可以用一行装（会临时下载仓库 tarball 再执行同一份 `install.py`）：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/suntianchong/diandian-agent-skill/main/install.sh | sh -s -- --host claude --scope user
 ```
 
 第 2 步会返回一行 JSON，里面 `authorizationUrl` 是给人打开的链接；在浏览器里登录、选空间、勾选权限并确认后：
