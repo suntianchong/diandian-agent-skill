@@ -1,3 +1,5 @@
+> **本仓库已迁移**：Skill 现在发布在 [suntianchong/PUPPYTODO-AGENT-SKILL](https://github.com/suntianchong/PUPPYTODO-AGENT-SKILL)，本仓库保留只读存档，不再更新。
+
 # 点点 Agent Skill
 
 让 Claude Code、Cursor、Codex、TRAE、Windsurf、Cline、Gemini CLI、GitHub Copilot、Aider 等 AI Agent 通过命令行接入**点点（Diandian）**待办服务：替人记录任务、安排日期、查看计划、按分配执行并回写状态。
